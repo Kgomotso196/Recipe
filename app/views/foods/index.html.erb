@@ -10,8 +10,8 @@
   <% if @food.size == 0 %>
     <h3 class="empty_list">There is no food item to display</h3>
   <% else %>
-    <table id="foods" class="foods_table">
-      <thead class="table_head">
+    <table class="foods_table">
+      <thead>
         <tr>
           <th>Name</th>
           <th>Measurement Unit</th>
@@ -26,7 +26,7 @@
             <td><%= food.measurement_unit %></td>
             <td><%= food.price %></td>
             <td>
-              <%= link_to 'Destroy', food, class: 'hover:underline', data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+              <%= link_to 'Delete', food, class: 'hover:underline', data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
             </td>
           </tr>
         <% end %>
