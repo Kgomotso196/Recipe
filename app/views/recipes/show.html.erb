@@ -1,0 +1,51 @@
+<h1>Recipe details</h1>
+<div id="recipe-details">
+  <h1><%= @recipe.name %></h1>
+
+  <div class="recipe-box">
+    <div class="recipe-details">
+      <div class="recipe-detail">
+        <p>Preparation time: <%= @recipe.preparation_time %> min</p>
+      </div>
+      <div class="recipe-detail">
+        <p>Cooking time: <%= @recipe.cooking_time %> min</p>
+      </div>
+      <div class="recipe-detail">
+        <p>Steps: <%= @recipe.description %></p>
+      </div>
+    </div>
+    <% if can? :update, @recipe %>
+      <%= button_to(@recipe.public? ? "Make Private" : "Make Public", toggle_recipe_public_path(@recipe), method: :put) %>
+      <% end %>
+  </div>
+</div>
+
+
+<div id="shopping_table">
+  <table>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <% if can? :destroy, @recipe %>
+        <th>Actions</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @food_recipe.each do |recipe_food| %>
+        <tr id="<%= dom_id recipe_food %>">
+          <td><%= recipe_food.food.name %></td>
+          <td><%= recipe_food.quantity %></td>
+          <td><%= recipe_food.food.price * recipe_food.quantity %></td>
+          <% if can? :destroy, @recipe %>
+          <td>
+          <%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

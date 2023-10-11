@@ -8,10 +8,8 @@ default: &default
 development:
   <<: *default
   database: Rails_Recipe_development
-  username: postgres
-  password: '<%= ENV['DATABASE_PASSWORD'] %>'
-  host: localhost
-  port: 5432
+  # host: localhost
+  # port: 5432
 
 test:
   <<: *default
@@ -20,5 +18,5 @@ test:
 production:
   <<: *default
   database: Rails_Recipe_production
-  username: Recipe
-  password: <%= ENV["BLOG_DATABASE_PASSWORD"] %>
+  username: postgres
+  password: '<%= ENV["DATABASE_PASSWORD"] %>'
