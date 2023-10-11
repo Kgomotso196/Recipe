@@ -1,0 +1,36 @@
+<div class="food_container">
+  <% if notice.present? %>
+    <p class="notice" id="notice">
+      <%= notice %>
+    </p>
+  <% end %>
+  <div class="add_food_container">
+    <%= link_to 'New Food', new_food_path, class: "new_food_button" %>
+  </div>
+  <% if @food.size == 0 %>
+    <h3 class="empty_list">There is no food item to display</h3>
+  <% else %>
+    <table id="foods" class="foods_table">
+      <thead class="table_head">
+        <tr>
+          <th>Name</th>
+          <th>Measurement Unit</th>
+          <th>Unit Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @food.each do |food| %>
+          <tr class="<%= cycle('row_odd', 'row_even') %>">
+            <td><%= food.name %></td>
+            <td><%= food.measurement_unit %></td>
+            <td><%= food.price %></td>
+            <td>
+              <%= link_to 'Destroy', food, class: 'hover:underline', data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
