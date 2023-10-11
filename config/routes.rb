@@ -13,5 +13,4 @@ Rails.application.routes.draw do
   resources :users
   put '/recipes/:id/toggle_public', to: 'recipes#toggle_public', as: 'toggle_recipe_public'
 
-  root "foods#index"
 end
