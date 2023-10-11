@@ -1,0 +1,33 @@
+	<%= form_with(model: @food) do |form| %>
+  <% if @food.errors.any? %>
+    <div id="error_explanation" class="form_error">
+      <h2><%= pluralize(@food.errors.count, "error") %>prohabited this food item from being saved:</h2>
+      <ul>
+        <% @food.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <section class="form_container">
+    <div class="input_group">
+      <%= form.label :name, class: "form_label" %>
+      <%= form.text_field :name, class: "form_input" %>
+    </div>
+    <div class="input_group">
+      <%= form.label :measurement_unit, class: "form_label" %>
+      <%= form.text_field :measurement_unit, class: "form_input" %>
+    </div>
+    <div class="input_group">
+      <%= form.label :price, class: "form_label" %>
+      <%= form.text_field :price, class: "form_input" %>
+    </div>
+    <div class="input_group">
+      <%= form.label :quantity, class: "form_label" %>
+      <%= form.number_field :quantity, class: "form_input" %>
+    </div>
+    <div class="submit">
+      <%= form.submit 'Add Food', class: "submit_button" %>
+    </div>
+  </section>
+<% end %>
