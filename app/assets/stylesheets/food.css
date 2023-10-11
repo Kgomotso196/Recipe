@@ -1,144 +1,143 @@
 .food_container {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -70%);
-	width: 30rem;
-	border: 2px solid rgb(223, 238, 233);
-	padding: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  width: 30rem;
+  border: 2px solid rgb(223, 238, 233);
+  padding: 2rem;
 }
 
 .add_food_container {
-	display: flex;
-	justify-content: end;
+  display: flex;
+  justify-content: end;
 }
 
 .new_food_button {
-	padding: 0.5rem 1rem;
-	background-color: rgb(171, 231, 211);
-	font-size: 1.1rem;
-	font-weight: bold;
-	border-radius: 0.25rem;
-	border-color: rgb(171, 231, 211);
-	color: rgb(9, 73, 52);
-	text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: rgb(171, 231, 211);
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 0.25rem;
+  border-color: rgb(171, 231, 211);
+  color: rgb(9, 73, 52);
+  text-decoration: none;
 }
 
 .new_food_button:hover {
-	cursor: pointer;
-	scale: 1.05;
+  cursor: pointer;
+  scale: 1.05;
 }
 
 .empty_list {
-	text-align: center;
-	font-weight: bold;
+  text-align: center;
+  font-weight: bold;
 }
 
 .foods_table {
-	border-collapse: collapse;
-	margin: 1.5rem 0;
-	min-width: 30rem;
-	border-radius: 5px 5px 0 0;
-	overflow: hidden;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  min-width: 30rem;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .foods_table thead tr {
-	background-color: #009879;
-	color: #fff;
-	text-align: left;
-	font-size: 1.1rem;
-	font-weight: bold;
+  background-color: #009879;
+  color: #fff;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 .foods_table th,
 .foods_table td {
-	padding: 0.75rem 1rem;
+  padding: 0.75rem 1rem;
 }
 
 .foods_table tbody tr {
-	border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #ddd;
 }
 
 .foods_table tbody tr:nth-of-type(even) {
-	background-color: #f3f3f3;
+  background-color: #f3f3f3;
 }
 
 .foods_table tbody tr:last-of-type {
-	border-bottom: 2px solid #009879;
+  border-bottom: 2px solid #009879;
 }
 
 .foods_table tbody tr.active-row {
-	font-weight: bold;
-	color: #009879;
+  font-weight: bold;
+  color: #009879;
 }
 
 .add_food {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 35rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35rem;
 }
 
 .add_food_title {
-	text-align: center;
-	color: #009879;
+  text-align: center;
+  color: #009879;
 }
 
 .form_container {
-	display: flex;
-	flex-direction: column;
-	padding: 1.5rem 2.5rem 1.5rem 1.5rem;
-	border: 2px solid rgb(223, 238, 233);
-	border-radius: 5px;
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-	margin: 0 0 2rem;
-	width: 85%;
-	gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2.5rem 1.5rem 1.5rem;
+  border: 2px solid rgb(223, 238, 233);
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 0 0 2rem;
+  width: 85%;
+  gap: 1.5rem;
 }
 
 .input_group {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .form_label {
-	font-size: 1.25rem;
-	font-weight: bold;
-	margin-bottom: 0.5rem;
-	color: rgb(9, 73, 52);
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: rgb(9, 73, 52);
 }
 
 .form_input {
-	padding: 0.5rem;
-	border: 1px solid rgb(223, 238, 233);
-	border-radius: 0.25rem;
-	width: 100%;
+  padding: 0.5rem;
+  border: 1px solid rgb(223, 238, 233);
+  border-radius: 0.25rem;
+  width: 100%;
 }
 
 .submit_button {
-	padding: 0.5rem 1rem;
-	background-color: rgb(171, 231, 211);
-	font-weight: bold;
-	border-radius: 0.25rem;
-	border-color: rgb(171, 231, 211);
-	color: rgb(9, 73, 52);
+  padding: 0.5rem 1rem;
+  background-color: rgb(171, 231, 211);
+  font-weight: bold;
+  border-radius: 0.25rem;
+  border-color: rgb(171, 231, 211);
+  color: rgb(9, 73, 52);
 }
 
 .submit_button:hover {
-	cursor: pointer;
-	scale: 1.05;
+  cursor: pointer;
+  scale: 1.05;
 }
 
 .back_button {
-	margin-top: 2rem;
-	font-weight: bold;
-	color: rgb(65, 66, 3);
-	font-style: none;
+  margin-top: 2rem;
+  font-weight: bold;
+  color: rgb(65, 66, 3);
 }
 
 .back_button:hover {
-	cursor: pointer;
-	scale: 1.05;
+  cursor: pointer;
+  scale: 1.05;
 }
