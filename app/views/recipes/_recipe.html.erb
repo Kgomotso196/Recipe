@@ -1,0 +1,11 @@
+<div id="recipe">
+  <div>
+    <p>
+      <%= link_to recipe.name , recipe %>
+    </p>
+      <%= button_to "Delete recipe", recipe, method: :delete %>
+      </div>
+  <p>
+    <%= recipe.description %>
+  </p>
+</div>

@@ -5,5 +5,12 @@ Rails.application.routes.draw do
   resources :foods, expect: [:update]
   # Defines the root path route ("/")
   # root "articles#index"
-  root "foods#index"
+
+  root "recipes#index"
+  resources :recipes do
+    resources :recipe_foods
+  end
+  resources :users
+  put '/recipes/:id/toggle_public', to: 'recipes#toggle_public', as: 'toggle_recipe_public'
+
 end

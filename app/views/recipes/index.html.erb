@@ -1,0 +1,20 @@
+<h1>Recipe page</h1>
+
+<div class="container">
+  <% if notice.present? %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
+
+  <h1>Recipes</h1>
+
+  <div id="recipes">
+    <% if @recipes %>
+  <% @recipes.each do |recipe| %>
+    <%= render recipe %>
+  <% end %>
+<% end %>
+
+  <div class="new-recipe-link-div">
+    <%= link_to "New recipe", new_recipe_path, class: "new-recipe-link" %>
+  </div>
+</div>
