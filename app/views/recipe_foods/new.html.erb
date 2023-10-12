@@ -1,0 +1,16 @@
+<div class="">
+  <h2 class="">Add Ingredient</h2>
+  <%= form_with(model: @recipe_food, url: recipe_recipe_foods_path(@recipe), method: :post, html: { class: "" }) do |f| %>
+    <div class="">
+      <%= f.label :food_id, 'Food' %>
+      <%= f.collection_select :food_id, Food.order(:name), :id, :name, required: true %>
+    </div>
+    <div class="">
+      <%= f.label :quantity, 'Quantity' %>
+      <%= f.number_field :quantity, required: true %>
+    </div>
+    <div class="">
+      <%= f.submit 'Add ingredient' %>
+    </div>
+  <% end %>
+</div>
