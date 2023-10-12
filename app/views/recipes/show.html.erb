@@ -1,35 +1,35 @@
-<h1>Recipe details</h1>
-<div id="recipe-details">
-  <h1><%= @recipe.name %></h1>
-
-  <div class="recipe-box">
-    <div class="recipe-details">
-      <div class="recipe-detail">
-        <p>Preparation time: <%= @recipe.preparation_time %> min</p>
+<div class="recipe-details-container">
+  <h1 class="recipe-details-title">Recipe details</h1>
+  <div class="recipe-details">
+    <h1 class="recipe-name"><%= @recipe.name %></h1>
+    <div class="recipe-box">
+      <div class="recipe-details-section">
+        <p class="recipe-detail">Preparation time: <%= @recipe.preparation_time %> min</p>
       </div>
-      <div class="recipe-detail">
-        <p>Cooking time: <%= @recipe.cooking_time %> min</p>
+      <div class="recipe-details-section">
+        <p class="recipe-detail">Cooking time: <%= @recipe.cooking_time %> min</p>
       </div>
-      <div class="recipe-detail">
-        <p>Steps: <%= @recipe.description %></p>
+      <div class="recipe-details-section">
+        <p class="recipe-detail">Steps: <%= @recipe.description %></p>
       </div>
     </div>
     <% if can? :update, @recipe %>
-      <%= button_to(@recipe.public? ? "Make Private" : "Make Public", toggle_recipe_public_path(@recipe), method: :put) %>
-      <% end %>
+      <div class="recipe-actions">
+        <%= button_to(@recipe.public? ? "Make Private" : "Make Public", toggle_recipe_public_path(@recipe), method: :put, class: "recipe-action-button") %>
+      </div>
+    <% end %>
   </div>
 </div>
 
-
-<div id="shopping_table">
-  <table>
+<div class="shopping-table-container">
+  <table class="shopping-table">
     <thead>
       <tr>
         <th>Food</th>
         <th>Quantity</th>
         <th>Value</th>
         <% if can? :destroy, @recipe %>
-        <th>Actions</th>
+          <th>Actions</th>
         <% end %>
       </tr>
     </thead>
@@ -40,9 +40,9 @@
           <td><%= recipe_food.quantity %></td>
           <td><%= recipe_food.food.price * recipe_food.quantity %></td>
           <% if can? :destroy, @recipe %>
-          <td>
-          <%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: 'Are you sure?' } %>
-          </td>
+            <td class="recipe-action-cell">
+              <%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: 'Are you sure?' }, class: "recipe-action-button" %>
+            </td>
           <% end %>
         </tr>
       <% end %>

@@ -1,8 +1,7 @@
-<%= form_with(model: recipe) do |form| %>
+<%= form_with(model: recipe, html: { class: "recipe-form-container" }) do |form| %>
   <% if recipe.errors.any? %>
-    <div style="color: red">
+    <div class="recipe-error-messages">
       <h2><%= pluralize(recipe.errors.count, "error") %> cannot save recipe:</h2>
-
       <ul>
         <% recipe.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -12,31 +11,30 @@
   <% end %>
 
   <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name, class: "recipe-form-label" %>
+    <%= form.text_field :name, class: "recipe-form-field" %>
   </div>
 
   <div>
-    <%= form.label :preparation_time %>
-    <%= form.number_field :preparation_time %>
+    <%= form.label :preparation_time, class: "recipe-form-label" %>
+    <%= form.number_field :preparation_time, class: "recipe-form-field" %>
   </div>
 
   <div>
-    <%= form.label :cooking_time %>
-    <%= form.number_field :cooking_time %>
+    <%= form.label :cooking_time, class: "recipe-form-label" %>
+    <%= form.number_field :cooking_time, class: "recipe-form-field" %>
   </div>
 
   <div>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="checkbox-div">
-    <%= form.label :public %>
-    <%= form.check_box :public %>
+    <%= form.label :description, class: "recipe-form-label" %>
+    <%= form.text_area :description, class: "recipe-form-field" %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Save Recipe", class: "recipe-form-submit" %>
   </div>
 <% end %>
+
+<div class="back-to-recipe">
+  <%= link_to "Back to Recipe", recipe, class: "back-to-recipe-link" %>
+</div>
