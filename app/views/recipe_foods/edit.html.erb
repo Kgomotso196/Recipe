@@ -1,15 +1,24 @@
-<div class="">
-  <h2 class="">Modify Ingredient</h2>
-  <%= form_with(model: @recipe_food, url: "/recipes/#{@recipe.id}/recipe_foods/#{@recipe_food.id}", method: :patch, html: { class: "" }) do |f| %>
-    <div>
-      <p>Ingedrient: <%= @recipe_food.food.name %></p>
-    </div>
-    <div>
-      <%= f.label :quantity, 'Quantity' %>
-      <%= f.number_field :quantity, required: true, class: "" %>
-    </div>
-    <div>
-      <%= f.submit "Update Ingedrient", class: "" %>
-    </div>
-  <% end %>
+<div class="users-container">
+  <div class="food-recipe-container">
+    <h5> Edit Ingredient</h5>
+    <table>
+      <tr>
+        <th>Food</th>
+        <th>Measurement Unit</th>
+        <th>Unit Price</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <td><%= @recipe_food.food.name %></td>
+        <td><%= @recipe_food.food.measurement_unit %></td>
+        <td>$ <%= @recipe_food.food.price %></td>
+        <td>
+          <%= form_with model: @recipe_food, url: recipe_recipe_food_path(@recipe,@recipe_food)  do |f| %>
+            <%= f.number_field :quantity, value: @recipe_food.quantity %>
+            <%= f.submit "Modify", class:"btn btn-warning btn-sm" %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>

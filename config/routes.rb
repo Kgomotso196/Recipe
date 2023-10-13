@@ -3,13 +3,15 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :foods, expect: [:update]
-  # Defines the root path route ("/")
-  # root "articles#index"
 
-  root "recipes#index"
+  root "recipes#public_recipes"
   resources :recipes do
     resources :recipe_foods
+    member do
+      get 'generate_shopping_list', to: 'recipes#generate_shopping_list'
+    end
   end
+  
   resources :users
   put '/recipes/:id/toggle_public', to: 'recipes#toggle_public', as: 'toggle_recipe_public'
 

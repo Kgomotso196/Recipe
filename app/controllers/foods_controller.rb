@@ -1,43 +1,45 @@
 class FoodsController < ApplicationController
-  before_action :authenticate_user!
+  load_and_authorize_resource
+  rescue_from CanCan::AccessDenied do |_exception|
+    redirect_to root_path, notice: 'Failed to delete this food item because it is being used by other users.'
+  end
 
   def index
-    @food = Food.all
+    if current_user
+      @foods = current_user.foods.includes(:recipe_foods).order(created_at: :desc)
+    else
+      redirect_to new_user_session_path, alert: 'Please log in to view your foods.'
+    end
   end
 
   def new
-    @user = current_user
     @food = Food.new
   end
 
-  def show
-    @food = Food.find(params[:id])
-  end
-
   def create
-    @user = current_user
-    @food = current_user.foods.build(food_params)
-    @food.user_id = current_user.id
+    @food = current_user.foods.new(food_params)
     if @food.save
-      redirect_to foods_path(@user), notice: 'Food item was successfully added.'
+      flash[:notice] = 'Food added successfully'
+      redirect_to foods_path
     else
-      render :new
+      flash[:notice] = @food.errors.full_messages.join(', ')
+      render 'new'
     end
   end
 
   def destroy
     @food = Food.find(params[:id])
-    if @food.user == current_user
-      @food.destroy
+    @food.recipe_foods.destroy_all
+    if @food.destroy
       redirect_to foods_path, notice: 'The food item was successfully deleted!'
     else
-      redirect_to foods_path, notice: 'You do not have permission to delete this food item!'
+      redirect_to foods_path, alert: 'Error deleting food!'
     end
   end
 
   private
 
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
   end
 end

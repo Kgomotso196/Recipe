@@ -1,10 +1,10 @@
-<div class="recipe-details-container">
-  <h1 class="recipe-details-title">Recipe details</h1>
-  <div class="recipe-details">
-    <h1 class="recipe-name"><%= @recipe.name %></h1>
-    <div class="recipe-box">
-      <div class="recipe-details-section">
-        <p class="recipe-detail">Preparation time: <%= @recipe.preparation_time %> min</p>
+<h2>Recipe details</h2>
+<div id="recipe-details">
+  <h2><%= @recipe.name %></h2>
+  <div class="recipe-box">
+    <div class="recipe-details">
+      <div class="recipe-detail">
+        <p>Preparation time: <%= @recipe.preparation_time %> min</p>
       </div>
       <div class="recipe-details-section">
         <p class="recipe-detail">Cooking time: <%= @recipe.cooking_time %> min</p>
@@ -14,15 +14,17 @@
       </div>
     </div>
     <% if can? :update, @recipe %>
-      <div class="recipe-actions">
-        <%= button_to(@recipe.public? ? "Make Private" : "Make Public", toggle_recipe_public_path(@recipe), method: :put, class: "recipe-action-button") %>
-      </div>
+      <%= button_to(@recipe.public? ? "Make Private" : "Make Public", toggle_recipe_public_path(@recipe), method: :put) %>
     <% end %>
   </div>
 </div>
-
-<div class="shopping-table-container">
-  <table class="shopping-table">
+<section style="display:flex; gap:45%;">
+  <%= link_to "Generate Shopping List", generate_shopping_list_recipe_path(@recipe), class: "btn btn-success" %>
+  <%= link_to "Add Ingredient" , new_recipe_recipe_food_path(@recipe.id), class: "btn btn-success" %>
+</section>
+<hr style= "width:90%">
+<div id="shopping_table">
+  <table>
     <thead>
       <tr>
         <th>Food</th>
@@ -40,8 +42,9 @@
           <td><%= recipe_food.quantity %></td>
           <td><%= recipe_food.food.price * recipe_food.quantity %></td>
           <% if can? :destroy, @recipe %>
-            <td class="recipe-action-cell">
-              <%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: 'Are you sure?' }, class: "recipe-action-button" %>
+            <td>
+              <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, recipe_food), class: "btn btn-info text-white" %>
+              <%= link_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), class: "btn btn-danger", method: :delete, data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" } %>
             </td>
           <% end %>
         </tr>

@@ -3,8 +3,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -70%);
-  width: 30rem;
-  border: 2px solid rgb(223, 238, 233);
+  min-width: 30rem;
   padding: 2rem;
 }
 
