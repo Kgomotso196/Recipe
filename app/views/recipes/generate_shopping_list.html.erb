@@ -1,23 +1,22 @@
-<div class="users-container">
-  <div class="food-recipe-container">
-    <h2 style="text-align:center">Shopping List</h2>
-    <div style="gap:25%; display:flex; margin-top:10%; margin-bottom:4%;">
-      <p>Amount of food items to buy: <%= @foods.length%></p>
-      <p>Total value of food needed: <%= @total_value%></p>
-    </div>
-    <table>
-      <tr>
-        <th>Food</th>
-        <th>Quantity</th>
-        <th>Price</th>
-      </tr>
-      <% @foods.each do |food| %>
-        <tr>
-          <td><%= food.name %></td>
-          <td><%= food.quantity %> <%= food.measurement_unit %></td>
-          <td>$ <%= food.price * food.quantity %></td>
-        </tr>
-      <% end %>
-    </table>
+<div class="detail_container">
+  <h2 class="page_title">Shopping List</h2>
+  <div class="shopping_summary">
+    <p>Amount of food items to buy: <%= @foods.length%></p>
+    <p>Total value of food needed: <%= @total_value%></p>
   </div>
+  <table class="table">
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= food.quantity %> <%= food.measurement_unit %></td>
+        <td>$ <%= food.price * food.quantity %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to 'Back to Recipes', recipes_path, class: "btn btn-white back_button" %>
 </div>

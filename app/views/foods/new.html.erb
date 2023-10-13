@@ -1,7 +1,5 @@
-<div class="add_food">
-  <h1 class="add_food_title">New Food</h1>
-
-  <%= render "form", product: @product %>
-
-  <%= link_to 'Back to foods', foods_path, class: "back_button" %>
+<div class="page_container add_item">
+  <h1 class="page_title">Add New Food</h1>
+  <%= render "form", food: @food %>
+  <%= link_to 'Back to Foods', foods_path, class: "btn btn-white back_button" %>
 </div>

@@ -1,16 +1,14 @@
-<div class="food_container">
+<div class="page_container">
+  <h1 class="page_title">Food List</h1>
   <% if notice.present? %>
     <p class="notice" id="notice">
       <%= notice %>
     </p>
   <% end %>
-  <div class="add_food_container">
-    <%= link_to 'New Food', new_food_path, class: "new_food_button" %>
-  </div>
   <% if @foods.count == 0 %>
     <h3 class="empty_list">There is no food item to display</h3>
   <% else %>
-    <table class="foods_table">
+    <table class="table">
       <thead>
         <tr>
           <th>Name</th>
@@ -27,7 +25,7 @@
             <td><%= food.price %></td>
             <td>
               <% if can? :destroy, food %>
-                <%= button_to "Delete", food, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= button_to "Delete", food, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
               <% else %>
                 Used by other users.
               <% end %>
@@ -37,4 +35,8 @@
       </tbody>
     </table>
   <% end %>
+  <div class="add_item_container">
+    <%= link_to 'New Food', new_food_path, class: "btn btn-success new_btn" %>
+  </div>
+  <%= link_to 'Back to Recipes', recipes_path, class: "btn btn-white back_button" %>
 </div>
