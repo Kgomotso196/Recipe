@@ -7,7 +7,7 @@
   <div class="add_food_container">
     <%= link_to 'New Food', new_food_path, class: "new_food_button" %>
   </div>
-  <% if @food.size == 0 %>
+  <% if @foods.count == 0 %>
     <h3 class="empty_list">There is no food item to display</h3>
   <% else %>
     <table class="foods_table">
@@ -20,13 +20,17 @@
         </tr>
       </thead>
       <tbody>
-        <% @food.each do |food| %>
+        <% @foods.each do |food| %>
           <tr class="<%= cycle('row_odd', 'row_even') %>">
             <td><%= food.name %></td>
             <td><%= food.measurement_unit %></td>
             <td><%= food.price %></td>
             <td>
-              <%= link_to 'Delete', food, class: 'hover:underline', data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+              <% if can? :destroy, food %>
+                <%= button_to "Delete", food, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% else %>
+                Used by other users.
+              <% end %>
             </td>
           </tr>
         <% end %>
