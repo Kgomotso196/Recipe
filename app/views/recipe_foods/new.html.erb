@@ -1,0 +1,30 @@
+<div class="users-container">
+  <div class="food-recipe-container">
+    <h2>Add Ingredients</h2>
+    <h4><%=@recipe.name%></h4>
+    <p class="page-title">Add new ingredients</p>
+    <table>
+      <tr>
+        <th>Food</th>
+        <th>Measurement Unit</th>
+        <th>Unit Price</th>
+        <th>Actions</th>
+      </tr>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td>$ <%= food.price %></td>
+          <td>
+            <%= form_with model: @recipe_food, url: recipe_recipe_foods_path(@recipe) do |f| %>
+              <%= f.hidden_field :recipe_id, value: @recipe.id %>
+              <%= f.hidden_field :food_id, value: food.id %>
+              <%= f.number_field :quantity, value: 0 %>
+              <%= f.submit "Add", class:"btn btn-success btn-sm" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
