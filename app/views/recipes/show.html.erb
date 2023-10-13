@@ -6,11 +6,11 @@
       <div class="recipe-detail">
         <p>Preparation time: <%= @recipe.preparation_time %> min</p>
       </div>
-      <div class="recipe-detail">
-        <p>Cooking time: <%= @recipe.cooking_time %> min</p>
+      <div class="recipe-details-section">
+        <p class="recipe-detail">Cooking time: <%= @recipe.cooking_time %> min</p>
       </div>
-      <div class="recipe-detail">
-        <p>Steps: <%= @recipe.description %></p>
+      <div class="recipe-details-section">
+        <p class="recipe-detail">Steps: <%= @recipe.description %></p>
       </div>
     </div>
     <% if can? :update, @recipe %>
