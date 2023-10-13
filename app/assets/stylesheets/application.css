@@ -10,3 +10,15 @@
 .notice {
   color: rgb(201, 69, 69);
 }
+
+.back_button {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.back_button:hover {
+  cursor: pointer;
+  scale: 1.05;
+  text-decoration: underline;
+}

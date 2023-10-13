@@ -1,31 +1,31 @@
-.food_container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -70%);
-  min-width: 30rem;
+.page_container {
+  min-width: 50%;
+  max-width: 80%;
   padding: 2rem;
-}
-
-.add_food_container {
+  margin: auto;
   display: flex;
-  justify-content: end;
+  flex-direction: column;
+  align-items: center;
 }
 
-.new_food_button {
+.page_title {
+  text-align: center;
+  color: #009879;
+  margin-bottom: 1rem;
+}
+
+.new_btn {
   padding: 0.5rem 1rem;
-  background-color: rgb(171, 231, 211);
   font-size: 1.1rem;
   font-weight: bold;
   border-radius: 0.25rem;
-  border-color: rgb(171, 231, 211);
-  color: rgb(9, 73, 52);
-  text-decoration: none;
+  margin: 1rem 0;
 }
 
-.new_food_button:hover {
+.new_btn:hover {
   cursor: pointer;
   scale: 1.05;
+  background-color: #45a049;
 }
 
 .empty_list {
@@ -36,7 +36,7 @@
 .foods_table {
   border-collapse: collapse;
   margin: 1.5rem 0;
-  min-width: 30rem;
+  width: 50rem;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -72,28 +72,15 @@
   color: #009879;
 }
 
-.add_food {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 35rem;
-}
-
-.add_food_title {
-  text-align: center;
-  color: #009879;
-}
-
 .form_container {
   display: flex;
   flex-direction: column;
+  width: 50rem;
   padding: 1.5rem 2.5rem 1.5rem 1.5rem;
   border: 2px solid rgb(223, 238, 233);
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   margin: 0 0 2rem;
-  width: 85%;
   gap: 1.5rem;
 }
 
@@ -116,27 +103,7 @@
   width: 100%;
 }
 
-.submit_button {
-  padding: 0.5rem 1rem;
-  background-color: rgb(171, 231, 211);
-  font-weight: bold;
-  border-radius: 0.25rem;
-  border-color: rgb(171, 231, 211);
-  color: rgb(9, 73, 52);
-}
-
 .submit_button:hover {
-  cursor: pointer;
-  scale: 1.05;
-}
-
-.back_button {
-  margin-top: 2rem;
-  font-weight: bold;
-  color: rgb(65, 66, 3);
-}
-
-.back_button:hover {
   cursor: pointer;
   scale: 1.05;
 }
