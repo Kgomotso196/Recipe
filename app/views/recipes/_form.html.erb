@@ -1,0 +1,33 @@
+<%= form_with(model: recipe, html: { class: "recipe-form-container" }) do |form| %>
+  <% if recipe.errors.any? %>
+    <div class="recipe-error-messages">
+      <h2><%= pluralize(recipe.errors.count, "error") %> cannot save recipe:</h2>
+      <ul>
+        <% recipe.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <section class="form_container">
+    <div class="input_group">
+      <%= form.label :name, class: "form_label" %>
+      <%= form.text_field :name, class: "form_input" %>
+    </div>
+    <div class="input_group">
+      <%= form.label :preparation_time, class: "form_label" %>
+      <%= form.number_field :preparation_time, class: "form_input" %>
+    </div>
+    <div class="input_group">
+      <%= form.label :cooking_time, class: "form_label" %>
+      <%= form.number_field :cooking_time, class: "form_input" %>
+    </div>
+    <div class="input_group">
+      <%= form.label :description, class: "form_label" %>
+      <%= form.text_area :description, class: "form_input" %>
+    </div>
+    <div  class="submit">
+      <%= form.submit "Save Recipe", class: "btn btn-success" %>
+    </div>
+  </section>
+<% end %>

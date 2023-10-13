@@ -1,0 +1,109 @@
+.page_container {
+  min-width: 50%;
+  max-width: 80%;
+  padding: 2rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page_title {
+  text-align: center;
+  color: #009879;
+  margin-bottom: 1rem;
+}
+
+.new_btn {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 0.25rem;
+  margin: 1rem 0;
+}
+
+.new_btn:hover {
+  cursor: pointer;
+  scale: 1.05;
+  background-color: #45a049;
+}
+
+.empty_list {
+  text-align: center;
+  font-weight: bold;
+}
+
+.foods_table {
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  width: 50rem;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.foods_table thead tr {
+  background-color: #009879;
+  color: #fff;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.foods_table th,
+.foods_table td {
+  padding: 0.75rem 1rem;
+}
+
+.foods_table tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.foods_table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.foods_table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.foods_table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+.form_container {
+  display: flex;
+  flex-direction: column;
+  width: 50rem;
+  padding: 1.5rem 2.5rem 1.5rem 1.5rem;
+  border: 2px solid rgb(223, 238, 233);
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 0 0 2rem;
+  gap: 1.5rem;
+}
+
+.input_group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_label {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: rgb(9, 73, 52);
+}
+
+.form_input {
+  padding: 0.5rem;
+  border: 1px solid rgb(223, 238, 233);
+  border-radius: 0.25rem;
+  width: 100%;
+}
+
+.submit_button:hover {
+  cursor: pointer;
+  scale: 1.05;
+}

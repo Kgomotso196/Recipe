@@ -1,0 +1,173 @@
+@font-face {
+  font-family: "PTSansNarrow";
+  src: url('/app/assets/fonts/PTSansNarrow.ttf');
+}
+
+.body {
+  font-family: "PTSansNarrow", sans-serif;
+}
+
+.notice {
+  color: rgb(201, 69, 69);
+}
+
+.back_button {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.back_button:hover {
+  cursor: pointer;
+  scale: 1.05;
+  text-decoration: underline;
+}
+
+/* Custom Navbar Styles */
+.custom-navbar {
+  background-color: #24ad6d;
+  color: #fff;
+  padding: 15px 0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Container Styles */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand Styles */
+.custom-brand {
+  font-size: 28px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Navbar Menu Styles */
+.navbar-menu ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar List Item Styles */
+.nav-item {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+/* Navbar Link Styles */
+.custom-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+
+.custom-link:hover {
+  color: #ffae63;
+}
+
+/* Welcome Container Styles */
+.welcome-container {
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 92vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Welcome Content Styles */
+.welcome-content {
+  text-align: center;
+  color: #000;
+}
+
+/* Welcome Heading Styles */
+.welcome-heading {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Welcome Text Styles */
+.welcome-text {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* Explore Button Styles */
+.explore-button {
+  display: inline-block;
+  background-color: #ff5733;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: #ffae63;
+}
+
+/* Login and Sign-up Page Styles */
+.container-login {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+  padding: 5% 0;
+}
+
+.auth-container {
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.auth-heading {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-check-input {
+  margin-right: 5px;
+}
+
+/* Password Hint Styles */
+.password-hint {
+  font-size: 14px;
+  color: #777;
+}

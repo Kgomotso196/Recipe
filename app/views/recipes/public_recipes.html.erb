@@ -1,0 +1,19 @@
+<div class="page_container">
+  <h1 class="page_title">Public Recipes</h1>
+  <% @recipes.each do |recipe| %>
+    <div class="recipe_card">
+      <div class="recipe_card_left">
+        <h5 class="name"><%= recipe.name %></h5>
+        <h6>By: <%= recipe.user.name %></h6>
+      </div>
+      <div class="recipe_card_right">
+        <p>Total food items: <%= recipe.recipe_foods.length %></p>
+        <% total_price = 0 %>
+        <% recipe.recipe_foods.each do |ingredient| %>
+          <% total_price += ingredient.quantity * ingredient.food.price %>
+        <% end %>
+        <p>Total price: $ <%= total_price %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

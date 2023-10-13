@@ -1,0 +1,42 @@
+<div class="page_container">
+  <h1 class="page_title">Food List</h1>
+  <% if notice.present? %>
+    <p class="notice" id="notice">
+      <%= notice %>
+    </p>
+  <% end %>
+  <% if @foods.count == 0 %>
+    <h3 class="empty_list">There is no food item to display</h3>
+  <% else %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Measurement Unit</th>
+          <th>Unit Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @foods.each do |food| %>
+          <tr class="<%= cycle('row_odd', 'row_even') %>">
+            <td><%= food.name %></td>
+            <td><%= food.measurement_unit %></td>
+            <td><%= food.price %></td>
+            <td>
+              <% if can? :destroy, food %>
+                <%= button_to "Delete", food, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% else %>
+                Used by other users.
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <div class="add_item_container">
+    <%= link_to 'New Food', new_food_path, class: "btn btn-success new_btn" %>
+  </div>
+  <%= link_to 'Back to Recipes', recipes_path, class: "btn btn-white back_button" %>
+</div>

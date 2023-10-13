@@ -1,0 +1,15 @@
+<div class="recipe_details">
+  <div class="left_container">
+    <div class="recipe_name">
+      <%= link_to recipe.name, recipe, class: "recipe_link" %>
+    </div>
+    <div class="remove-btn">
+      <%= button_to "REMOVE", recipe, method: :delete, class: "btn btn-danger" %>
+    </div>
+  </div>
+  <div class="right_container">
+    <div class="recipe_description">
+      <%= recipe.description %>
+    </div>
+  </div>
+</div>

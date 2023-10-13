@@ -1,0 +1,53 @@
+<div class="detail_container">
+  <h2 class="page_title"><%= @recipe.name %></h2>
+  <div class="recipe_box">
+    <div class="recipe_box_left">
+      <p>Preparation time: <%= @recipe.preparation_time %> min</p>
+      <d>Cooking time: <%= @recipe.cooking_time %> min</p>
+      <p>Steps go here...</p>
+    </div>
+    <div class="recipe_box_right">
+      <% if can? :update, @recipe %>
+        <div class="form-check form-switch d-flex align-items-center">
+          <label class="form-check-label me-2" for="public-switch">Public&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <input class="form-check-input" type="checkbox" id="public-switch" <%= @recipe.public? ? 'checked' : '' %>>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="link_btn">
+    <div><%= link_to "Generate Shopping List", generate_shopping_list_recipe_path(@recipe), class: "btn btn-success" %></div>
+    <div><%= link_to "Add Ingredient" , new_recipe_recipe_food_path(@recipe.id), class: "btn btn-success" %></div>
+  </div>
+  <hr style= "width:55%">
+  <div id="ingredient_table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Value</th>
+          <% if can? :destroy, @recipe %>
+            <th>Actions</th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @food_recipe.each do |recipe_food| %>
+          <tr id="<%= dom_id recipe_food %>">
+            <td><%= recipe_food.food.name %></td>
+            <td><%= recipe_food.quantity %></td>
+            <td><%= recipe_food.food.price * recipe_food.quantity %></td>
+            <% if can? :destroy, @recipe %>
+              <td>
+                <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, recipe_food), class: "btn btn-info text-white" %>
+                <%= link_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), class: "btn btn-danger", method: :delete, data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" } %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= link_to 'Back to Recipes', recipes_path, class: "btn btn-white back_button" %>
+</div>
