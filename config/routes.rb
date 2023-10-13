@@ -4,11 +4,19 @@ Rails.application.routes.draw do
 
   resources :foods, expect: [:update]
 
-  root "recipes#public_recipes"
+  authenticated :user do
+    root 'recipes#index', as: :authenticated_root
+  end
+
+  root 'home#index'
+
   resources :recipes do
     resources :recipe_foods
     member do
       get 'generate_shopping_list', to: 'recipes#generate_shopping_list'
+    end
+    collection do
+      get 'public_recipes', to: 'recipes#public_recipes'
     end
   end
   

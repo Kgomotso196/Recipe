@@ -9,32 +9,25 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :name, class: "recipe-form-label" %>
-    <%= form.text_field :name, class: "recipe-form-field" %>
-  </div>
-
-  <div>
-    <%= form.label :preparation_time, class: "recipe-form-label" %>
-    <%= form.number_field :preparation_time, class: "recipe-form-field" %>
-  </div>
-
-  <div>
-    <%= form.label :cooking_time, class: "recipe-form-label" %>
-    <%= form.number_field :cooking_time, class: "recipe-form-field" %>
-  </div>
-
-  <div>
-    <%= form.label :description, class: "recipe-form-label" %>
-    <%= form.text_area :description, class: "recipe-form-field" %>
-  </div>
-
-  <div>
-    <%= form.submit "Save Recipe", class: "recipe-form-submit" %>
-  </div>
+  <section class="form_container">
+    <div class="input_group">
+      <%= form.label :name, class: "form_label" %>
+      <%= form.text_field :name, class: "form_input" %>
+    </div>
+    <div class="input_group">
+      <%= form.label :preparation_time, class: "form_label" %>
+      <%= form.number_field :preparation_time, class: "form_input" %>
+    </div>
+    <div class="input_group">
+      <%= form.label :cooking_time, class: "form_label" %>
+      <%= form.number_field :cooking_time, class: "form_input" %>
+    </div>
+    <div class="input_group">
+      <%= form.label :description, class: "form_label" %>
+      <%= form.text_area :description, class: "form_input" %>
+    </div>
+    <div  class="submit">
+      <%= form.submit "Save Recipe", class: "btn btn-success" %>
+    </div>
+  </section>
 <% end %>
-
-<div class="back-to-recipe">
-  <%= link_to "Back to Recipe", recipe, class: "back-to-recipe-link" %>
-</div>
