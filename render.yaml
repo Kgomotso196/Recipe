@@ -1,0 +1,18 @@
+databases:
+  - name: rails-group-project
+    databaseName: rails_group_project
+    user: rails_group_project_user
+
+services:
+  - type: web
+    name: recipe-app
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: rails_group_project
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
