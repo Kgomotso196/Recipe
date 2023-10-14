@@ -10,6 +10,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
@@ -64,6 +65,12 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Live Demo Link](https://recipe-ror.onrender.com)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## 💻 Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running, follow these steps.
@@ -115,7 +122,7 @@ To run tests, run the following command:
 
 ### Deployment
 
-You can deploy this project using: **Heroku**
+You can deploy this project using: **Heroku** or **Render**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -154,13 +161,13 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project, I kindly request you to show your support by giving it a star and considering following my social media pages. Your engagement would be greatly appreciated!
+If you like this project, we kindly request you to show your support by giving it a star and considering following our social media pages. Your engagement would be greatly appreciated!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse for proposing this project, and extend my heartfelt thanks to my fellow programmers for their assistance whenever possible.
+We would like to thank Microverse for proposing this project, and extend our heartfelt gratitude to our fellow programmers for their assistance whenever possible.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
