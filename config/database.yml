@@ -17,6 +17,4 @@ test:
 
 production:
   <<: *default
-  database: Rails_Recipe_production
-  username: postgres
-  password: '<%= ENV["DATABASE_PASSWORD"] %>'
+  url: <%= ENV['DATABASE_URL'] %>
